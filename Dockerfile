@@ -26,6 +26,10 @@ RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cl
     gcloud config set component_manager/disable_update_check true && \
     gcloud config set metrics/environment github_docker_image
 
-RUN kubectl config set-cluster minikube --server=https://192.168.99.100:8443 --certificate-authority=/minikube/ca.crt && \
-    kubectl config set-credentials minikube --certificate-authority=/root/.minikube/ca.crt --client-key=/minikube/client.key && \ --client-certificate=/minikube/client.crt && \
-    kubectl config set-context minikube --cluster=minikube --user=minikube
+RUN kubectl config set-cluster minikube --server=https://192.168.99.100:8443 \
+      --certificate-authority=/minikube/ca.crt && \
+    kubectl config set-credentials minikube --certificate-authority=/root/.minikube/ca.crt \
+      --client-key=/minikube/client.key \
+      --client-certificate=/minikube/client.crt && \
+    kubectl config set-context minikube --cluster=minikube --user=minikube && \
+    kubectl config use-context minikube
