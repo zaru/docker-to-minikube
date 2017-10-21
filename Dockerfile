@@ -33,3 +33,8 @@ RUN kubectl config set-cluster minikube --server=https://192.168.99.100:8443 \
       --client-certificate=/minikube/client.crt && \
     kubectl config set-context minikube --cluster=minikube --user=minikube && \
     kubectl config use-context minikube
+
+ENV DOCKER_TLS_VERIFY   1
+ENV DOCKER_HOST         tcp://192.168.99.100:2376
+ENV DOCKER_CERT_PATH    /minikube/certs
+ENV DOCKER_API_VERSION  1.23

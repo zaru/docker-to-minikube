@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-sample
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        application: nginx
+    spec:
+      containers:
+        - image: nginx-sample:v0.0.1
+          name: nginx
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-sample
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    name: "80"
+    targetPort: 80
+  selector:
+    application: nginx

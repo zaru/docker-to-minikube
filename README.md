@@ -22,3 +22,9 @@ docker run --rm -it --name docker-to-minikube \
 ```
 kubectl get all
 ```
+
+```
+cd containers
+docker build -t nginx-sample:v0.0.1 .
+kubectl create -f kubernetes.yaml
+```
