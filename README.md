@@ -4,12 +4,6 @@
 ./setup.sh
 ```
 
-or
-
-```
-docker build -t docker-to-minikube .
-```
-
 ## Run
 
 ```
@@ -19,9 +13,13 @@ docker run --rm -it --name docker-to-minikube \
   docker-to-minikube
 ```
 
+in docker-tominikube container.
+
 ```
 kubectl get all
 ```
+
+build and run to sample container for kubernetes.
 
 ```
 cd containers
